@@ -1,0 +1,54 @@
+<div id="chat-sidebar">
+    <div id="sidebar-top">
+        <div id="sidebar-header">
+            <div id="avatar-container">
+                <img src="../../../assets/images/noPic.svg" alt="avatar">
+            </div>
+            <div id="actions-container">
+                <img src="../../../assets/images/statusIcon.svg" alt="#">
+                <img src="../../../assets/images/chatIcon.svg" alt="#">
+                <img src="../../../assets/images/moreVertIcon.svg" alt="#">
+            </div>
+        </div>
+        
+        <div id="sidebar-search">
+            <img src="../assets/images/searchIcon.svg" alt="search">
+            <input type="text" placeholder="Search or start new chat">
+        </div>
+    </div>
+
+
+    <div id="sidebar-content">
+        <div class="conversation" *ngFor="let conversation of conversations">
+            <div class="conversation-avatar">
+                <img src="../../../assets/images/noPic.svg">
+            </div>
+            <div class="conversation-content">
+                <div class="conversation-content-header">
+                    <div class="conversation-content-header-name">{{ conversation.name }}</div>
+                    <div class="conversation-content-header-time">{{ conversation.time }}</div>
+                </div>
+                <div class="conversation-content-message">
+                    <img *ngIf="!conversation.latestMessageRead" src="../../../assets/images/doubleTick.svg" alt="#">
+                    <img *ngIf="conversation.latestMessageRead" src="../../../assets/images/doubleTickBlue.svg" alt="#">
+                    {{ conversation.latestMessage }}
+                </div>
+            </div>
+        </div>
+        <!-- <div class="conversation">
+            <div class="conversation-avatar">
+                <img src="../../../assets/images/noPic.svg">
+            </div>
+            <div class="conversation-content">
+                <div class="conversation-content-header">
+                    <div class="conversation-content-header-name">Hanh</div>
+                    <div class="conversation-content-header-time">9:25 PM</div>
+                </div>
+                <div class="conversation-content-message">Good morning</div>
+            </div>
+        </div> -->
+        <!-- <div id="no-conversation">
+            All chats are archived
+        </div> -->
+    </div>
+</div>
